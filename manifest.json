@@ -1,0 +1,46 @@
+/* LIVING IN ANXIETY
+  A Google Chrome extension which generates the symptoms of anxiety,
+  in hopes of creating awareness of this prevalent issue amongst teenagers and young adults.
+  It was inspired by personal experience, and based on several social studies:
+  "Different types of Internet use, depression, and social anxiety: The role of perceived friendship quality"
+  by Selfhout, M. et al.; 
+*/ 
+
+{
+  "manifest_version": 2,
+
+  "name": "Living in Anxiety",
+  "author": "Sophia Lim",
+  "description": "This extension generates sets of symptoms through phases of anxiety relating to the use of Internet,
+  more specifically the use of social media.",
+  "version": "1.0",
+
+  "icons": {  "16" : "icon.png",
+              "48" : "icon.png",
+              "128" : "icon.png"
+            },
+
+  "content_scripts": [
+    {
+      "js": [ "p5.js","content_script.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_end"
+    }
+  ],
+
+  "background": {
+    "scripts": ["background_script.js"]
+  },
+
+  "browser_action": {
+    "default_title": "Living in Anxiety",
+    "default_icon": {
+      "19": "icon_19.png"
+    }
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
